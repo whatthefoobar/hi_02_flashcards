@@ -1,4 +1,4 @@
 # flashcards
- flashcards with nav bar
+second school project: a simple flashcard app.
  
  https://whatthefoof.github.io/flashcards/
