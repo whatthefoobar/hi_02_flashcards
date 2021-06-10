@@ -10,6 +10,7 @@ body.classList.toggle("activeNav");
 // flashcard code
 
 const cardContainer = document.querySelector(".cardContainer");
+// console.log(cardContainer);
 const card = document.querySelector(".card");
 let rotated = false; // starts on the front side of the card
 let currentCard = 0;
@@ -29,7 +30,7 @@ cardContainer.addEventListener("click", function(){
 });
 /* array of objects, where the objects have a question and answer*/
 
-const flashcardList = [
+ const flashcardList = [
   { question: "what is love? Baby don't hurt me.",
     answer: "爱是什么？宝贝，别伤害我。<br> Ài shì shénme? Bǎobèi, bié shānghài wǒ." },
   { question: "I don't speak Chinese. Why do you ask?",
