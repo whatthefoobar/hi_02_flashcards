@@ -6,26 +6,26 @@
 body {
   font-family: Open Sans, Arial, san-serif;
   overflow-x: hidden;
-  background-color:rgb(252, 219, 197);
+  background-color: #f59b9e;
 }
 
 nav {
   position: fixed;
   z-index: 1000;
   top: 0;
-  bottom:0;
+  bottom: 0;
   width: 120px;
-  background-color:#7488af;
+  background-color: #d76067;
   transform: translate3d(-120px, 0, 0);
   transition: transform 0.4s ease;
 }
 .activeNav nav {
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
 }
 
 nav ul {
   list-style: none;
-  margin-top: 100px; 
+  margin-top: 100px;
 }
 nav ul li a {
   text-decoration: none;
@@ -33,52 +33,54 @@ nav ul li a {
   font-weight: bold;
   display: block;
   text-align: center;
-  color:#413131;
+  color: #f4c0c1;
   padding: 10px 0;
 }
 nav ul li a:hover {
-background-color: #697ca3;
+  background-color: #d2565e;
 }
 
 .navToggleBtn {
   display: block;
   position: absolute;
-  left: 120px;
-  width: 40px;
-  Height: 100%;
-  background-color:#697ca3;
-  background-image: url("./img/hamburger.png");
+  left: 110px;
+  width: 80px;
+  height: 100%;
+  background-color: transparent;
+  background-image: url("./img/ham.png");
+  color: #f4c0c1;
   background-repeat: no-repeat;
   background-size: 90%;
 }
 
 .container {
+  margin-top: 5%;
   transition: transform 0.4s ease;
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-content: center;
   align-items: center;
 }
 
 .activeNav .container {
-  transform: translate3d(120px,0,0);
+  transform: translate3d(120px, 0, 0);
 }
 
 /* the flashcard part */
 
-.cardContainer{
-  margin-top: 7%;
-  width: 820px;
-  height: 520px;
+.cardContainer {
+  width: 600px;
+  height: 420px;
 }
 
 .card {
   width: 100%;
   height: 100%;
   transition: transform 1s ease-in-out; /**/
-  transform-style: preserve-3d;/**/
-  
+  transform-style: preserve-3d; /**/
 }
 /* .card-container:hover .card { 
   transform: rotateY(180deg);
@@ -91,78 +93,84 @@ background-color: #697ca3;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;    /*to make button do what I want, move it up right */
+  align-items: center; /*to make button do what I want, move it up right */
   border-radius: 15px;
 }
 
+.front,
+.back {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
 .card .front {
- background:#cc9d5c;
- color:#413131;
- text-align: center;
- 
+  background: #d76067;
+  /* border: 2px solid white; */
+  color: #f4c0c1;
+  text-align: center;
 }
 
 .card .back {
-  background: #be8e4b;
-  color:#413131;
+  background: #d76067;
+  /* border: 2px solid white; */
+  color: #f4c0c1;
   text-align: center;
   transform: rotateY(180deg);
-  
 }
 .soundBtn {
-  width:60px;
-  height:40px; 
+  width: 60px;
+  height: 40px;
   border: none;
-  background-color:#be8e4b;  
+  background-color: transparent;
   align-self: flex-end;
   margin-right: 30px;
   margin-bottom: 30px;
-  color:#83653c;
-  border: 3px solid #83653c;
-  box-shadow: 4px 4px  #7a603a;
+  font-size: 20px;
+  color: #f4c0c1;
+  border: 3px solid #f4c0c1;
+  box-shadow: 2px 2px #efcccc;
   /* border: 2px solid #83653c; */
   border-radius: 2px;
-  
 }
 .soundBtn:hover {
-  color:#83653c;
-  border: 2px solid #83653c;
-  box-shadow: 1px 1px  #83653c;
+  color: #f4c0c1;
+  border: 2px solid #f4c0c1;
+  box-shadow: 1px 1px #efcccc;
   cursor: pointer;
 }
-.hidden{
-  display: none; 
+.hidden {
+  display: none;
   /*better than visibility: hidden, as it removes the element and the space it*/
 }
 
-.btnContainer{ 
-  height:50px;
+.btnContainer {
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
+  gap: 5px;
   transition: transform 0.4s ease;
 }
-.activeNav .btnContainer {
-  transform: translate3d(120px,0,0);
-}
+
 .ctrlBtn {
-  background-color: #7488af;
-  color:#413131;
+  background-color: #d76067;
+  color: #f4c0c1;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  width:150px;
-  height:40px;
+  width: 150px;
+  height: 40px;
   border-radius: 5px;
+  border: none;
 }
 /* test.html page */
 
-.testItem{
+.testItem {
   margin-top: 10px;
 }
 
-input{
+input {
   /* margin-top: 20px; */
   width: 550px;
   height: 30px;
@@ -170,16 +178,16 @@ input{
 }
 .resultBtn {
   margin-top: 20px;
-  background-color:#6b7d9e;
-  color:#1f1919;
+  background-color: #6b7d9e;
+  color: #1f1919;
   text-align: center;
   font-size: 22px;
-  width:170px;
-  height:50px;
+  width: 170px;
+  height: 50px;
   border-radius: 5px;
 }
 .resultBtn:hover {
-  background-color:#576580;
+  background-color: #576580;
 }
 
 #answerResult {
@@ -198,7 +206,7 @@ input{
   /* align-items: center; */
 }
 .activeNav .testContainer {
-  transform: translate3d(120px,0,0);
+  transform: translate3d(120px, 0, 0);
 }
 
 .testBox {
@@ -206,11 +214,11 @@ input{
   margin-left: 7%;
 }
 
-.testItem{
+.testItem {
   margin-top: 10px;
 }
 
-input{
+input {
   /* margin-top: 20px; */
   width: 550px;
   height: 30px;
@@ -218,16 +226,16 @@ input{
 }
 .resultBtn {
   margin-top: 20px;
-  background-color:#6b7d9e;
-  color:#1f1919;
+  background-color: #6b7d9e;
+  color: #1f1919;
   text-align: center;
   font-size: 22px;
-  width:170px;
-  height:50px;
+  width: 170px;
+  height: 50px;
   border-radius: 5px;
 }
 .resultBtn:hover {
-  background-color:#576580;
+  background-color: #576580;
 }
 
 #answerResult {

@@ -9,7 +9,8 @@
   <!-- <script  src="./js/main.js" defer ></script> -->
   <!-- link to css stylesheet -->
   <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/c0f45b7229.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/c0f45b7229.js" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Flashcards app with nav bar</title>
 </head>
 <body>
@@ -31,19 +32,22 @@
             <h2 id="frontCard"></h2>
           </figure>
           <figure class="back">
-            <button class="soundBtn hidden"><i class="fas fa-volume-down fa-2x"></i></button>
+            <button class="soundBtn hidden"><i class="fas fa-volume-down "></i></button>
             <h1 class="title">Press Start to begin.</h1>
             <h2 id="backCard"></h2>
           </figure>
         </div>
       </div>
+
+       <div class="btnContainer">
+      <button class="ctrlBtn" id ="prevBtn"><i class="fas fa-long-arrow-alt-left "></i></button>
+      <button class="ctrlBtn" id = "startBtn">Start/Reset</button>
+      <button class="ctrlBtn" id = "nextBtn"><i class="fas fa-long-arrow-alt-right "></i></button>
+    </div>
+
     </div>
       
-    <div class="btnContainer">
-      <button class="ctrlBtn" id ="prevBtn"><i class="fas fa-long-arrow-alt-left fa-2x"></i></button>
-      <button class="ctrlBtn" id = "startBtn">Start/Reset</button>
-      <button class="ctrlBtn" id = "nextBtn"><i class="fas fa-long-arrow-alt-right fa-2x"></i></button>
-    </div>
+   
    
   </div>
 
