@@ -54,15 +54,15 @@ nav ul li a:hover {
 }
 
 .container {
-  margin-top: 5%;
+  margin: 10vh auto;
   transition: transform 0.4s ease;
-  width: 100%;
-  height: 100%;
+  width: 600px;
+  height: 420px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: center; */
 }
 
 .activeNav .container {
@@ -72,8 +72,8 @@ nav ul li a:hover {
 /* the flashcard part */
 
 .cardContainer {
-  width: 600px;
-  height: 420px;
+  width: 100%;
+  height: 100%;
 }
 
 .card {
@@ -241,4 +241,11 @@ input {
 #answerResult {
   margin-top: 10px;
   font-size: 22px;
+}
+
+/* media queries */
+@media (max-width: 700px) {
+  .container {
+    width: 400px;
+  }
 }
