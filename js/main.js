@@ -1,16 +1,4 @@
-// make side nav bar slide
-
-// const body = document.querySelector("body");
-// const navToggleBtn = document.querySelector(".navToggleBtn");
-
-// navToggleBtn.addEventListener("click",function(){
-// body.classList.toggle("activeNav");
-// });
-
-// flashcard code
-
 const cardContainer = document.querySelector(".cardContainer");
-// console.log(cardContainer);
 const card = document.querySelector(".card");
 let rotated = false; // starts on the front side of the card
 let currentCard = 0;
@@ -18,15 +6,16 @@ const soundBtn = document.querySelector(".soundBtn");
 
 /*create a toggle rotate effect*/
 
-cardContainer.addEventListener("click", function () {
-  if (rotated == false) {
+cardContainer.addEventListener("click", () => {
+  if (!rotated) {
     card.style.transform = "rotateY(180deg)";
     rotated = true;
-  } else if (rotated == true) {
+  } else {
     card.style.transform = "rotateY(360deg)";
     rotated = false;
   }
 });
+
 /* array of objects, where the objects have a question and answer*/
 
 const flashcardList = [
@@ -56,15 +45,10 @@ const flashcardList = [
 
 /* create a map() array method that makes 2 subarrays one of questions and one of answers*/
 
-let qFlashcardList = flashcardList.map(function (flashcard) {
-  return flashcard.question;
-});
+const qFlashcardList = flashcardList.map((flashcard) => flashcard.question);
+const aFlashcardList = flashcardList.map((flashcard) => flashcard.answer);
 
-let aFlashcardList = flashcardList.map(function (flashcard) {
-  return flashcard.answer;
-});
-
-/*assign each question to the front and each answer to the back of the card accesing the 2 arrays and using currentCard as the start index number*/
+/*assign each question to the front and each answer to the back of the card accessing the 2 arrays and using currentCard as the start index number*/
 
 const frontCard = document.getElementById("frontCard");
 const backCard = document.getElementById("backCard");
@@ -82,7 +66,7 @@ const prevBtn = document.querySelector("#prevBtn");
 const startBtn = document.querySelector("#startBtn");
 const nextBtn = document.querySelector("#nextBtn");
 
-function clickPrev() {
+const clickPrev = () => {
   currentCard--;
   if (currentCard < 0) {
     currentCard = qFlashcardList.length - 1;
@@ -91,31 +75,33 @@ function clickPrev() {
   title[0].classList.add("hidden");
   title[1].classList.add("hidden");
   soundBtn.classList.remove("hidden");
-}
-function clickStart() {
+};
+
+const clickStart = () => {
   currentCard = 0;
   showCard(currentCard);
   title[0].classList.add("hidden");
   title[1].classList.add("hidden");
   soundBtn.classList.remove("hidden");
-}
-function clickNext() {
+};
+
+const clickNext = () => {
   currentCard++;
   if (currentCard > qFlashcardList.length - 1) {
     currentCard = 0;
   }
-  showCard(currentCard); //`${currentCard + 1}`
+  showCard(currentCard);
   title[0].classList.add("hidden");
   title[1].classList.add("hidden");
   soundBtn.classList.remove("hidden");
-}
+};
 
 prevBtn.addEventListener("click", clickPrev);
 startBtn.addEventListener("click", clickStart);
 nextBtn.addEventListener("click", clickNext);
 
 /* array of objects, where the objects have a question and answer*/
-/*add an audio button for audio files*/
+/add an audio button for audio files/;
 
 const soundList = [
   "sounds/a1.mp3",
@@ -125,15 +111,14 @@ const soundList = [
   "sounds/a5.mp3",
 ];
 
-let playSound = new Audio();
-function addSound(currentCard) {
+const playSound = new Audio();
+
+const addSound = (currentCard) => {
   playSound.src = soundList[currentCard];
-}
+};
 
-// soundBtn.addEventListener("click", playSound);
-
-soundBtn.addEventListener("click", function (e) {
+soundBtn.addEventListener("click", (e) => {
   e.stopPropagation();
-  addSound(currentCard); //without this the first answer audio plays
+  addSound(currentCard);
   playSound.play();
 });
