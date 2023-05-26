@@ -1,8 +1,8 @@
-const cardContainer = document.querySelector(".cardContainer");
-const card = document.querySelector(".card");
+const cardContainer = document.querySelector(".cardContainer") as HTMLElement;
+const card = document.querySelector(".card") as HTMLElement;
 let rotated = false; // starts on the front side of the card
 let currentCard = 0;
-const soundBtn = document.querySelector(".soundBtn");
+const soundBtn = document.querySelector(".soundBtn") as HTMLElement;
 
 /*create a toggle rotate effect*/
 
@@ -18,7 +18,12 @@ cardContainer.addEventListener("click", () => {
 
 /* array of objects, where the objects have a question and answer*/
 
-const flashcardList = [
+interface Flashcard {
+  question: string;
+  answer: string;
+}
+
+const flashcardList: Flashcard[] = [
   {
     question: "what is love? Baby don't hurt me.",
     answer:
@@ -45,26 +50,30 @@ const flashcardList = [
 
 /* create a map() array method that makes 2 subarrays one of questions and one of answers*/
 
-const qFlashcardList = flashcardList.map((flashcard) => flashcard.question);
-const aFlashcardList = flashcardList.map((flashcard) => flashcard.answer);
+const qFlashcardList: string[] = flashcardList.map(
+  (flashcard) => flashcard.question
+);
+const aFlashcardList: string[] = flashcardList.map(
+  (flashcard) => flashcard.answer
+);
 
 /*assign each question to the front and each answer to the back of the card accessing the 2 arrays and using currentCard as the start index number*/
 
-const frontCard = document.getElementById("frontCard");
-const backCard = document.getElementById("backCard");
+const frontCard = document.getElementById("frontCard") as HTMLElement;
+const backCard = document.getElementById("backCard") as HTMLElement;
 
-function showCard(currentCard) {
+const showCard = (currentCard: number) => {
   frontCard.innerHTML = qFlashcardList[currentCard];
   backCard.innerHTML = aFlashcardList[currentCard];
-}
+};
 
 /*currentCard is the start index no which gets incremented or decremented when the ctrl buttons are clicked*/
 
 /*activate next random and previous buttons so that they trigger specific Q and A*/
 const title = document.querySelectorAll(".title");
-const prevBtn = document.querySelector("#prevBtn");
-const startBtn = document.querySelector("#startBtn");
-const nextBtn = document.querySelector("#nextBtn");
+const prevBtn = document.querySelector("#prevBtn") as HTMLElement;
+const startBtn = document.querySelector("#startBtn") as HTMLElement;
+const nextBtn = document.querySelector("#nextBtn") as HTMLElement;
 
 const clickPrev = () => {
   currentCard--;
@@ -101,9 +110,9 @@ startBtn.addEventListener("click", clickStart);
 nextBtn.addEventListener("click", clickNext);
 
 /* array of objects, where the objects have a question and answer*/
-/add an audio button for audio files/;
+// Add an audio button for audio files
 
-const soundList = [
+const soundList: string[] = [
   "sounds/a1.mp3",
   "sounds/a2.mp3",
   "sounds/a3.mp3",
@@ -113,7 +122,7 @@ const soundList = [
 
 const playSound = new Audio();
 
-const addSound = (currentCard) => {
+const addSound = (currentCard: number) => {
   playSound.src = soundList[currentCard];
 };
 
